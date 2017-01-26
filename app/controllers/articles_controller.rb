@@ -8,6 +8,12 @@ class ArticlesController < ApplicationController
   ]
 
   def index
+    @new_article     = Article.all
+    @article_ranking = Article.limit(5)
+
+    @pickup_iamge1 = Article.find_by_id(3)
+    @pickup_iamge2 = Article.find_by_id(2)
+    @pickup_iamge3 = Article.find_by_id(1)
   end
 
   def show
