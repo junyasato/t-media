@@ -1,0 +1,13 @@
+<section>
+  <h2><%= title %></h2>
+  <% article.each do |r| %>
+    <div class="side-article-contents">
+      <%= link_to article_path(r.id) do %>
+        <%= image_tag r.image %>
+        <div class="side-article-info">
+          <p class="contents-title"><%= r.title %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</section>

@@ -1,0 +1,1 @@
+$('.add-item-form-field').html("<%= j(render "items/#{@items.item_type}", article_id: @article_id , desc: @items.desc, items: @items) %>")

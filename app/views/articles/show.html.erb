@@ -1,0 +1,69 @@
+<div class="top">
+  <div class="article-wrap">
+    <div class="top-article-show">
+      <h1><%= @articles.title %></h1>
+    </div>
+    <div class="main-article-show">
+      <div class="show-item-area">
+        <%= image_tag @articles.image %>
+        <div class="articles-desc">
+          <p><%= @articles.desc %></p>
+        </div>
+      </div>
+      <div class="show-items">
+        <% @items.each do |i| %>
+          <% case i.item_type %>
+            <% when "text" %>
+              <%= simple_format(h(i.desc)) %>
+            <% when "header" %>
+              <h2><%= i.desc %></h2>
+            <% when "quote" %>
+              <blockquote><%= simple_format(h(i.desc)) %></blockquote>
+            <% when "button" %>
+              <%= link_to "#{i.desc}", i.link_url, :class => "item-button" %>
+            <% when "image" %>
+              <div class="show-items-image">
+                <%= image_tag i.image, :class => "item-image" %>
+              </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="show-related_article">
+        <h2>関連記事</h2>
+        <% @related_article.each do |n| %>
+          <div class="related_article-contents">
+            <%= link_to article_path(n.id) do %>
+              <%= image_tag n.image %>
+              <div class="related_article-info">
+                <p class="contents-title"><%= n.title %></p>
+                <p class="contents-desc"><%= truncate(n.desc, :length => 70) %></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="show-related_article">
+        <h2>アクセスランキング</h2>
+        <% @article_ranking.each do |n| %>
+          <div class="related_article-contents">
+            <%= link_to article_path(n.id) do %>
+              <%= image_tag n.image %>
+              <div class="related_article-info">
+                <p class="contents-title"><%= n.title %></p>
+                <p class="contents-desc"><%= truncate(n.desc, :length => 70) %></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+
+    </div>
+    <div class="side-article-show">
+      <%= render "side_section", article: @article_ranking, title: "アクセスランキング" %>
+      <%= render "side_section", article: @related_article, title: "関連記事" %>
+    </div>
+  </div>
+</div>

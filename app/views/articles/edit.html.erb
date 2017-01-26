@@ -1,0 +1,76 @@
+<div class="article-edit">
+<div class="cms-top">
+  <div class="cms-top-inner">
+    <div class="cms-top-select-category">
+    </div>
+    <div class="cms-top-button-list">
+      <input type="button" class="btn btn-basic" value="下書き保存" article_id="<%= @articles.id %>"></input>
+    </div>
+  </div>
+</div>
+<div class="cms-wrapp">
+  <div class="cms-article-info">
+    <div class="cms-article-image">
+      <%= image_tag @articles.image if @articles.image.present? %>
+      <div class="mask">
+        <div class="caption"><a data-toggle="modal" data-target="#post-tags-modal">画像を追加する</a></div>
+      </div>
+    </div>
+    <div class="cms-article-text">
+      <%= form_for @articles do |f| %>
+        <%= f.text_field :title, class: "form-title", placeholder: "タイトル" %>
+        <%= f.text_area :desc, class: "form-desc", :size => "10x4", placeholder: "説明文"  %>
+        <%= f.submit "保存", class: "btn btn-set" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="cms-item-wrapp">
+    <ul>
+      <li id="add-text" article_id="<%= @articles.id %>">テキスト</li>
+      <li id="add-header" article_id="<%= @articles.id %>">見出し</li>
+      <li id="add-quote" article_id="<%= @articles.id %>">引用</li>
+      <li id="add-button" article_id="<%= @articles.id %>">ボタン</li>
+      <li id="add-image" article_id="<%= @articles.id %>">画像</li>
+    </ul>
+    <div id="item-field">
+      <div class="add-item-form-field"></div>
+      <% @items.each do |i| %>
+        <div class="items" item_id="<%= i.id %>">
+          <% case i.item_type %>
+            <% when "text" %>
+              <%= simple_format(h(i.desc)) %>
+            <% when "header" %>
+              <h3><%= i.desc %></h3>
+            <% when "quote" %>
+              <blockquote><%= simple_format(h(i.desc)) %></blockquote>
+            <% when "button" %>
+              <%= link_to "#{i.desc}", i.link_url, :class => "item-button" %>
+            <% when "image" %>
+              <%= image_tag i.image, :class => "item-image" %>
+          <% end %>
+        </div>
+        <!-- <div class="item-list" item_list_id="<%= i.id %>"></div> -->
+      <% end %>
+    </div>
+  </li>
+</div>
+</div>
+
+<div class="modal fade" id="post-tags-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+        <h4 class="modal-title">画像追加</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for @articles do |lf| %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn btn-secondary" data-dismiss="modal">閉じる</button>
+        <%= lf.submit "アップロード", class: "btn btn-warning" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
