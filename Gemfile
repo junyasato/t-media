@@ -58,9 +58,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 ### env
 gem 'dotenv-rails'
-
-### bootstrap
-gem 'bootstrap', '~> 4.0.0.alpha4'
-
-### ファイルのajax通信
-gem 'remotipart', github: 'mshibuya/remotipart', ref: '88d9a7'
