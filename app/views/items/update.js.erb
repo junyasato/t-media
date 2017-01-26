@@ -1,0 +1,10 @@
+var object = $("[item_id='<%= @items.id %>']");
+switch("<%= @items.item_type %>"){
+  case "text" : object.html("<%= j(simple_format(h(@items.desc))) %>"); break;
+  case "quote" : object.html("<%= j(simple_format(h(@items.desc), {}, wrapper_tag: "blockquote")) %>"); break;
+  case "link" : object.html("<%= j(simple_format(h(@items.desc))) %>"); break;
+  case "button" : object.html("<%= j(link_to @items.desc, @items.link_url, :class => "item-button") %>"); break;
+  case "header" : object.html("<%= j(simple_format(h(@items.desc), {}, wrapper_tag: "h3")) %>"); break;
+  case "image" : object.html("<%= j(image_tag @items.image, :class => "item-image") if @items.image %>"); break;
+  default : alert("全部違います。"); break;
+}

@@ -1,0 +1,9 @@
+$('#item-field').html('<% @items.each do |i| %>'+
+  '<div class="items" item_id="<%= i.id %>"><% case i.item_type %><% when "text" %>'+
+  '<%= j(simple_format(h(i.desc))) %><% when "header" %>'+
+  '<h3><%= i.desc %></h3>'+
+  '<% when "quote" %><blockquote>'+
+  '<%= j(simple_format(h(i.desc))) %></blockquote><% when "button" %>'+
+  '<%= j(link_to "#{i.desc}", i.link_url, :class => "item-button") %>'+
+  '<% when "image" %><%= image_tag i.image, :class => "item-image" %>'+
+  '<% end %></div><% end %>');

@@ -1,0 +1,7 @@
+<%= form_for items, html: { remote: true, authenticity_token: true, multipart: true } do |f| %>
+  <%= f.file_field :image %><br>
+  <%= f.text_field :image, class: "form-control", placeholder: "画像URL" %>
+  <%= f.hidden_field :item_type, :value => "image" %>
+  <%= f.hidden_field :article_id, :value => article_id %>
+  <%= f.submit "アップロード", class: "btn btn-add-item"  %>
+<% end %>

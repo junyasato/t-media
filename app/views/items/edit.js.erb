@@ -1,0 +1,2 @@
+var object = $("[item_id='<%= @items.id %>']");
+object.html("<%= j(render @items.item_type, article_id: @items.article_id, desc: @items.desc, items: @items, url: @items.link_url) %>")

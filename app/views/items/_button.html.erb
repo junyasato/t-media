@@ -1,0 +1,7 @@
+ <%= form_for items, html: { remote: true, authenticity_token: true, multipart: true } do |f| %>
+    <%= f.text_field :desc, class: "form-control", value: desc, placeholder: "ボタン" %>
+    <%= f.text_field :link_url, class: "form-control", value: url, placeholder: "URL" %>
+    <%= f.hidden_field :item_type, :value => "button" %>
+    <%= f.hidden_field :article_id, :value => article_id %>
+    <%= f.submit "アップロード", class: "btn btn-add-item"  %>
+  <% end %>

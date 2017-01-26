@@ -1,0 +1,565 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+@mixin side-desing(){
+  width: 30%;
+  float:right;
+  overflow: hidden;
+  section{
+    margin-bottom: 25px;
+  }
+  .side-article-contents{
+    height: 75px;
+    width: 100%;
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+    a{
+      color: black;
+      &:hover{
+        color: #0074bf;
+      }
+    }
+    img{
+      width: 65px;
+      height: 65px;
+      float: left;
+    }
+    .side-article-info{
+      width: 70%;
+      padding-left: 5px;
+      float: left;
+      .contents-title{
+        font-size: 12px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@mixin side-desing-h2{
+  border-left: 4px solid;
+  color: #0074bf;
+  font-size: 16px;
+  background: #F7F6F4;
+  padding: 7px 8px;
+  font-weight: bold;
+}
+
+@mixin cms-image(){
+  float: left;
+  width:      160px;
+  height:     160px;
+  overflow:   hidden;
+  margin:     0 3px 0 0;
+  position:   relative;
+}
+
+@mixin caption(){
+  font-size:    130%;
+  text-align:     center;
+  padding-top:    65px;
+}
+
+@mixin mask(){
+  width:      100%;
+  height:     100%;
+  position:   absolute;
+  top:      0;
+  left:     0;
+  opacity:    0;
+  background-color: rgba(0,0,0,0.4);
+  -webkit-transition: all 0.2s ease;
+  transition:   all 0.2s ease;
+}
+
+@mixin cms-article-image(){
+  @include cms-image();
+  .caption {
+    @include caption();
+    a{
+      color: #fff;
+    }
+  }
+  .mask {
+    @include mask();
+  }
+  &:hover .mask {
+    opacity:    1;
+  }
+}
+
+
+.article-wrap{
+  width: 1014px;
+  margin: 0 auto;
+  height: 100%;
+  overflow: hidden;
+}
+
+.pickup-article-index{
+  width: 100%;
+  overflow: hidden;
+  height: 400px;
+  margin: 20px 0;
+  .pickup-article-relative1{
+    position: relative;
+    width: 65%;
+    height: 100%;
+    float: left;
+    .pickup-image1{
+      width: 100%;
+      height: 100%;
+    }
+    .pickup-article-absolute1{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.3);
+      top: 0;
+    }
+    .pickup-article-info{
+      position: absolute;
+      color: #fff;
+      bottom: 0;
+      padding: 0 10px 20px 10px;
+      .contents-title{
+        font-size: 20px;
+      }
+      .contents-desc{
+        font-size: 12px;
+      }
+    }
+  }
+  .pickup-article-relative2{
+    position: relative;
+    width: 35%;
+    height: 50%;
+    float: left;
+    .pickup-image2{
+      width: 100%;
+      height: 100%;
+    }
+    .pickup-article-absolute2{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.3);
+      top: 0;
+    }
+    .pickup-article-info{
+      position: absolute;
+      color: #fff;
+      bottom: 0;
+      padding: 0 10px 10px 10px;
+      .contents-title{
+        font-size: 15px;
+      }
+      .contents-desc{
+        font-size: 10px;
+      }
+    }
+  }
+  .pickup-article-relative3{
+    position: relative;
+      width: 35%;
+      height: 50%;
+      float: left;
+    .pickup-image3{
+      width: 100%;
+      height: 100%;
+    }
+    .pickup-article-absolute3{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.3);
+      top: 0;
+    }
+    .pickup-article-info{
+      position: absolute;
+      color: #fff;
+      bottom: 0;
+      padding: 0 10px 10px 10px;
+      .contents-title{
+        font-size: 15px;
+      }
+      .contents-desc{
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+.article-main-index{
+  h2{
+    @include side-desing-h2();
+  }
+  width: 100%;
+  float:left;
+  overflow: hidden;
+  .new-article-index{
+    width: 68%;
+    float:left;
+    .new-article-contents{
+      height: 120px;
+      width: 100%;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+      a{
+        color: black;
+        &:hover{
+          color: #0074bf;
+        }
+      }
+      img{
+        width: 120px;
+        height: 100px;
+        float: left;
+      }
+      .new-article-info{
+        width: 75%;
+        padding: 8px;
+        float: left;
+        .contents-title{
+          font-size: 15px;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+        .contents-desc{
+          font-size: 12px;
+          color: #666;
+        }
+      }
+    }
+  }
+  .side-article-index{
+    @include side-desing();
+  }
+}
+
+/// show ///
+
+.top-article-show{
+  margin-top: 30px;
+  width: 100%;
+  background: #F7F6F4;
+  border: solid 1px #f0ede6;
+  h1{
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+
+.main-article-show{
+  width: 68%;
+  float: left;
+  margin-top: 30px;
+  .show-item-area{
+    padding-bottom: 20px;
+    img{
+      width: 100%;
+      max-height: 500px;
+    }
+    .articles-desc{
+      width: 100%;
+      background: #f7f7f7;
+      margin-top: 10px;
+      p{
+        padding: 15px;
+        font-size: 14px;
+      }
+    }
+  }
+  .show-items{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    h2{
+      font-size: 22px;
+      border-bottom: 3px solid #0074bf;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    img{
+      width: 100%;
+      height: 400px;
+      padding-bottom: 20px;
+    }
+    blockquote{
+      background-color: #f5f5f5;
+      padding: 1em 1em 1em 2em;
+      position: relative;
+      margin: 0 0 20px 0;
+      p{
+        padding: 0;
+      }
+    }
+    blockquote:before{
+      content: "“";
+      font-size: 500%;
+      line-height: 1em;
+      font-family: "ＭＳ Ｐゴシック",sans-serif;
+      color:#999;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    p{
+      font-size: 15px;
+      padding-bottom: 20px;
+    }
+    .item-button{
+      width: 50%;
+      height: 50px;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      line-height: 50px;
+      color: black;
+      font-weight: bold;
+      background: #f2cf01;
+      border-bottom: solid 3px #bb952d;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .show-related_article{
+    width: 100%;
+    float:left;
+    margin-bottom: 50px;
+    h2{
+      @include side-desing-h2();
+    }
+    .related_article-contents{
+      height: 120px;
+      width: 100%;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      a{
+        color: black;
+        &:hover{
+          color: #0074bf;
+        }
+      }
+      img{
+        width: 120px;
+        height: 100px;
+        float: left;
+      }
+      .related_article-info{
+        width: 75%;
+        padding: 8px;
+        float: left;
+        .contents-title{
+          font-size: 15px;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+        .contents-desc{
+          font-size: 12px;
+          color: #666;
+        }
+      }
+    }
+  }
+
+}
+
+.side-article-show{
+  @include side-desing();
+  margin-top: 30px;
+  h2{
+    @include side-desing-h2();
+  }
+}
+
+/// edit ///
+.cms-top{
+  background: #F7F7F7;
+  .cms-top-inner{
+    overflow: hidden;
+    width: 900px;
+    margin: 0 auto;
+    padding: 10px 0;
+    .cms-top-button-list{
+      float: right;
+      widht: 300px;
+    }
+  }
+}
+.article-edit{
+  min-width: 1000px;
+  max-width: 1702px;
+  margin-left: 220px;
+}
+
+.cms-wrapp{
+  width: 900px;
+  margin: 0 auto;
+  .cms-article-info{
+    margin-top: 20px;
+    overflow: hidden;
+    .cms-article-image{
+      @include cms-article-image();
+      width: 160px;
+      height: 160px;
+      border: 1px solid #ddd;
+      float: left;
+      img{
+        width: 160px;
+        height: 160px;
+      }
+    }
+    .cms-article-text{
+      float: right;
+      width: 725px;
+      .form-title{
+        width: 100%;
+        height: 38px;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+      }
+      .form-desc{
+        width: 100%;
+        height: 100px;
+        margin-top: 22px;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+      }
+      .btn-set{
+        color: #666;
+        float: right;
+        background: #f8f8f8;
+        font-size: 12px!important;
+        border: 1px solid #d8d8d8!important;
+        &:hover{
+          background: #e7e7e7;
+        }
+      }
+    }
+  }
+  .cms-item-wrapp{
+    margin: 20px 0;
+    border: 1px solid #e7e7e7;
+    ul{
+      font-size: 0;
+      padding: 0;
+      margin: 0;
+      background: #eee;
+      border-bottom: 1px solid #e7e7e7;
+      li{
+        display: inline-block;
+        padding: 5px 10px;
+        font-size: 12px;
+        width: 70px;
+        height: 50px;
+        line-height: 40px;
+        text-align: center;
+        border-right: 1px solid #fff;
+        color: #666;
+        &:hover{
+          background: #DDDDDD;
+        }
+      }
+    }
+    #item-field{
+      padding: 20px;
+      .add-item-form-field{
+        margin-bottom:20px;
+        #item_link_url{
+          margin-top: 10px;
+        }
+        #item_remote_image_url{
+          margin-top: 10px;
+        }
+      }
+      .items{
+        margin-bottom: 1.5rem;
+        padding: 15px 15px 0 10px;
+        p{
+          margin: 0;
+        }
+        blockquote{
+          background-color: #f5f5f5;
+          padding: 1em 1em 1em 2em;
+          position: relative;
+          p{
+            padding: 0;
+          }
+        }
+        blockquote:before{
+          content: "“";
+          font-size: 500%;
+          line-height: 1em;
+          font-family: "ＭＳ Ｐゴシック",sans-serif;
+          color:#999;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        &:hover{
+          background: #EEEEEE;
+        }
+        h3{
+          border-bottom: 2px solid;
+          padding-bottom: 5px;
+          font-size: 23px;
+          font-weight: bold;
+          margin: 0;
+        }
+        .choice-field{
+          border-bottom: none;
+          margin-left: -10px;
+          li{
+            height: 25px;
+            line-height: 10px;
+            background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EEE));
+            border-top: 1px solid #EEE;
+            color:#111;
+            border-top: 1px solid #e7e7e7;
+            border-bottom: 1px solid #e7e7e7;
+            width: 100px;
+            &:hover{
+              background: #DDDDDD;
+            }
+          }
+        }
+        .item-button{
+          width: 50%;
+          height: 50px;
+          text-decoration: none;
+          display: block;
+          text-align: center;
+          line-height: 50px;
+          color: black;
+          font-weight: bold;
+          background: #f2cf01;
+          border-bottom: solid 3px #bb952d;
+          border-radius: 5px;
+          margin-bottom: 20px;
+          &:hover{
+          }
+        }
+        .item-image{
+          width: 100%;
+          max-height: 500px;
+        }
+      }
+    }
+  }
+  .btn-add-item{
+    font-size: 13px;
+    background: #aaa;
+    color: #fff;
+    min-width: 100px;
+    padding: 8px 5px;
+    margin-top: 10px;
+  }
+}

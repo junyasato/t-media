@@ -1,0 +1,6 @@
+<%= form_for items, html: { remote: true, authenticity_token: true, multipart: true } do |f| %>
+  <%= f.text_area :desc, class: "form-control", value: desc, :size => "10x6", placeholder: "引用文" %>
+  <%= f.hidden_field :item_type, :value => "quote" %>
+  <%= f.hidden_field :article_id, :value => article_id %>
+  <%= f.submit "アップロード", class: "btn btn-add-item"  %>
+<% end %>
