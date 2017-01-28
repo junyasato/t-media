@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/mshibuya/remotipart.git
+  revision: 88d9a7d55bde66acb6cf3a3c6036a5a1fc991d5e
+  ref: 88d9a7
+  specs:
+    remotipart (1.2.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,8 +46,13 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
+    autoprefixer-rails (6.7.0)
+      execjs
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap (4.0.0.alpha6)
+      autoprefixer-rails (>= 6.0.3)
+      sass (>= 3.4.19)
     builder (3.2.3)
     byebug (9.0.6)
     coderay (1.1.1)
@@ -183,6 +195,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap (~> 4.0.0.alpha4)
   byebug
   coffee-rails (~> 4.2)
   dotenv-rails
@@ -196,6 +209,7 @@ DEPENDENCIES
   pry-stack_explorer
   puma (~> 3.0)
   rails (~> 5.0.1)
+  remotipart!
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
